@@ -1,10 +1,12 @@
-﻿namespace TravelManagement.Models
+﻿using System.ComponentModel.DataAnnotations;
+
+namespace TravelManagement.Models
 {
     public class Adress
     {
 
         #region "PROPERTIES"
-
+        [Key]
         public string CEP { get; set; }
         public string Street { get; set; }
         public string Number { get; set; }

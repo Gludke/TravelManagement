@@ -1,10 +1,12 @@
 ﻿using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 
 namespace TravelManagement.Models
 {
     public class Driver
     {
         #region "PROPERTIES"
+        [Key]
         public int Id { get; set; }
         public string Name { get; set; }
         public int TruckId { get; set; }//chave estrangeira

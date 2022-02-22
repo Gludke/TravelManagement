@@ -1,9 +1,12 @@
-﻿namespace TravelManagement.Models
+﻿using System.ComponentModel.DataAnnotations;
+
+namespace TravelManagement.Models
 {
     public class Truck
     {
 
         #region "PROPERTIES"
+        [Key]
         public int Id { get; set; }
         public string Brand { get; set; }
         public string Model { get; set; }

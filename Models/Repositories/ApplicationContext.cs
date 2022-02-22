@@ -19,26 +19,25 @@ namespace TravelManagement.Models.Repositories
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            base.OnModelCreating(modelBuilder);
+            //Driver
+            modelBuilder.Entity<Driver>().HasKey(t => t.Id);
+            modelBuilder.Entity<Driver>().HasOne(driver => driver.Adress).WithOne(a => a.Driver)
+                 .HasForeignKey<Adress>(d => d.DriverId);
 
+            modelBuilder.Entity<Driver>().HasOne(driver => driver.Truck).WithOne(a => a.Driver)
+                 .HasForeignKey<Truck>(d => d.DriverId);
+
+            modelBuilder.Entity<Driver>().HasMany(travels => travels.Travels).WithOne(d => d.Driver);
+            //Adress:
             modelBuilder.Entity<Adress>().HasKey(t => t.CEP); //o entity registra a classe ao BD e define a sua PK
             modelBuilder.Entity<Adress>().HasOne(adress => adress.Driver).WithOne(driver => driver.Adress);
+              
 
-            modelBuilder.Entity<Driver>().HasOne(driver => driver.Adress).WithOne(adress => adress.Driver);
-            modelBuilder.Entity<Driver>().HasOne(driver => driver.Truck).WithOne(adress => adress.Driver);
+            modelBuilder.Entity<Truck>().HasKey(t => t.Id);
+            modelBuilder.Entity<Truck>().HasOne(driver => driver.Driver);
 
-
-
-            //modelBuilder.Entity<Pedido>().HasKey(p => p.Id);
-            //modelBuilder.Entity<Pedido>().HasMany(p => p.Itens).WithOne(itens => itens.Pedido);
-            //modelBuilder.Entity<Pedido>().HasOne(p => p.Cadastro).WithOne(c => c.Pedido).IsRequired();
-
-            //modelBuilder.Entity<ItemPedido>().HasKey(t => t.Id);
-            //modelBuilder.Entity<ItemPedido>().HasOne(itp => itp.Pedido);
-            //modelBuilder.Entity<ItemPedido>().HasOne(itp => itp.Produto);
-
-            //modelBuilder.Entity<Cadastro>().HasKey(t => t.Id);
-            //modelBuilder.Entity<Cadastro>().HasOne(c => c.Pedido);
+            modelBuilder.Entity<Travel>().HasKey(t => t.Id);
+            modelBuilder.Entity<Travel>().HasOne(driver => driver.Driver).WithMany(t => t.Travels);
         }
     }
 }
