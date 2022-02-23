@@ -1,0 +1,54 @@
+﻿@model IEnumerable<Driver>
+
+@{
+    ViewData["Title"] = "List";
+}
+
+<h1>List</h1>
+
+<p>
+    <a asp-controller="Driver"
+       asp-action="Create" class="btn btn-primary">Adicionar Novo</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                Nome
+            </th>
+            <th>
+                Código Caminhão
+            </th>
+            <th>
+                CEP do motorista
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @item.Name
+            </td>
+            <td>
+                @item.TruckId
+            </td>
+            <td>
+                @item.AdressId
+            </td>
+            <td>
+                <a asp-controller="Driver"
+                   asp-action="Edit"
+                   asp-route-idBook="@item.Id" class="btn btn-secondary btn-base">Editar</a>
+                <a asp-controller="Driver"
+                   asp-action="Details"
+                   asp-route-idBook="@item.Id" class="btn btn-secondary btn-base">Detalhes</a>
+                <a asp-controller="Driver"
+                   asp-action="Remove"
+                   asp-route-idBook="@item.Id" class="btn btn-secondary btn-base">Remover</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

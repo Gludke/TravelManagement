@@ -9,9 +9,9 @@ namespace TravelManagement.Models
         [Key]
         public int Id { get; set; }
         public string Name { get; set; }
-        public int TruckId { get; set; }//chave estrangeira
+        public int? TruckId { get; set; }//chave estrangeira
         public Truck Truck { get; set; }
-        public int AdressId { get; set; }//chave estrangeira
+        public int? AdressId { get; set; }//chave estrangeira
         public Adress Adress { get; set; }
         public IList<Travel> Travels { get; set; }
 

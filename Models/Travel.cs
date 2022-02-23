@@ -17,6 +17,7 @@ namespace TravelManagement.Models
         public string ExitPlace { get; set; }
         public double KmBetweenCities { get; set; }
         public int DriverId { get; set; }//chave estrangeira
+        [Required]
         public Driver Driver { get; set; }
 
         #endregion

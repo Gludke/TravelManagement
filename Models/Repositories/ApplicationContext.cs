@@ -29,7 +29,7 @@ namespace TravelManagement.Models.Repositories
 
             modelBuilder.Entity<Driver>().HasMany(travels => travels.Travels).WithOne(d => d.Driver);
             //Adress:
-            modelBuilder.Entity<Adress>().HasKey(t => t.CEP); //o entity registra a classe ao BD e define a sua PK
+            modelBuilder.Entity<Adress>().HasKey(t => t.CEP); 
             modelBuilder.Entity<Adress>().HasOne(adress => adress.Driver).WithOne(driver => driver.Adress);
               
 
