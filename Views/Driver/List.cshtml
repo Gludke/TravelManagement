@@ -1,15 +1,17 @@
 ﻿@model IEnumerable<Driver>
 
 @{
-    ViewData["Title"] = "List";
+    ViewData["Title"] = "Motoristas";
 }
 
-<h1>List</h1>
-
-<p>
-    <a asp-controller="Driver"
-       asp-action="Create" class="btn btn-primary">Adicionar Novo</a>
-</p>
+<section class="title">
+    <h1>Motoristas</h1>
+    <span class="children-end">
+        <a asp-controller="Driver"
+           asp-action="Create" class="btn btn-primary">Adicionar Novo</a>
+    </span>
+</section>
+        
 <table class="table">
     <thead>
         <tr>
@@ -30,12 +32,6 @@
         <tr>
             <td>
                 @item.Name
-            </td>
-            <td>
-                @item.TruckId
-            </td>
-            <td>
-                @item.AdressId
             </td>
             <td>
                 <a asp-controller="Driver"

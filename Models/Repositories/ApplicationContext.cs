@@ -21,21 +21,30 @@ namespace TravelManagement.Models.Repositories
         {
             //Driver
             modelBuilder.Entity<Driver>().HasKey(t => t.Id);
-            modelBuilder.Entity<Driver>().HasOne(driver => driver.Adress).WithOne(a => a.Driver)
-                 .HasForeignKey<Adress>(d => d.DriverId);
+            modelBuilder.Entity<Driver>()
+                .HasOne<Adress>(driver => driver.Adress)
+                .WithOne(a => a.Driver)
+                .HasForeignKey<Adress>(a => a.DriverId);
 
-            modelBuilder.Entity<Driver>().HasOne(driver => driver.Truck).WithOne(a => a.Driver)
-                 .HasForeignKey<Truck>(d => d.DriverId);
+            modelBuilder.Entity<Driver>()
+                .HasOne(driver => driver.Truck)
+                .WithOne(a => a.Driver)
+                .HasForeignKey<Truck>(d => d.DriverId);
 
             modelBuilder.Entity<Driver>().HasMany(travels => travels.Travels).WithOne(d => d.Driver);
             //Adress:
-            modelBuilder.Entity<Adress>().HasKey(t => t.CEP); 
-            modelBuilder.Entity<Adress>().HasOne(adress => adress.Driver).WithOne(driver => driver.Adress);
-              
+            modelBuilder.Entity<Adress>().HasKey(t => t.Id);
+            modelBuilder.Entity<Adress>()
+                .HasOne<Driver>(a => a.Driver)
+                .WithOne(d => d.Adress);
 
+            //Truck:
             modelBuilder.Entity<Truck>().HasKey(t => t.Id);
-            modelBuilder.Entity<Truck>().HasOne(driver => driver.Driver);
+            modelBuilder.Entity<Truck>()
+                .HasOne(driver => driver.Driver)
+                .WithOne(driver => driver.Truck);
 
+            //Travel:
             modelBuilder.Entity<Travel>().HasKey(t => t.Id);
             modelBuilder.Entity<Travel>().HasOne(driver => driver.Driver).WithMany(t => t.Travels);
         }

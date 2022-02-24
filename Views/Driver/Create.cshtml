@@ -1,0 +1,107 @@
+﻿@model Driver
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Novo Motorista</h1>
+<div>
+    <a class="btn btn-primary" asp-controller="Driver" asp-action="List">Voltar</a>
+</div>
+@{
+    if (ViewBag.success == "success")
+    {
+        <div class="alert alert-success" role="alert">
+            Novo motorista cadastrado com sucesso!
+        </div>
+    }
+    else if (ViewBag.success == "fail")
+    {
+        <div class="alert alert-danger" role="alert">
+            Erro ao cadastrar novo motorista.
+        </div>
+    }
+}
+<hr />
+<div class="panel panel-default">
+    <div class="panel-body">
+        <form asp-controller="Driver" asp-action="Create" method="post">
+            <div class="col-md-4">
+                <div class="form-group">
+                    <label class="control-label" for="name">Nome do Motorista</label>
+                    <input asp-for="@Model.Name" id="name" class="form-control" />
+                    <span asp-validation-for="@Model.Name" class="text-danger"></span>
+                </div>
+            </div>
+            <h4>Dados do Caminhão</h4>
+            <br />
+            <div class="col-md-4">
+                <div class="form-group">
+                    <label class="control-label" for="modelTruck">Marca do Caminhão</label>
+                    <input asp-for="@Model.Truck.Brand" id="modelTruck" class="form-control" />
+                    <span asp-validation-for="@Model.Truck.Brand" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label class="control-label" for="modelTruck">Modelo do Caminhão</label>
+                    <input asp-for="@Model.Truck.Model" id="modelTruck" class="form-control" />
+                    <span asp-validation-for="@Model.Truck.Model" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label class="control-label" for="modelTruck">Quantidade de Eixos</label>
+                    <input asp-for="@Model.Truck.Axles" id="modelTruck" class="form-control" />
+                    <span asp-validation-for="@Model.Truck.Axles" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="form-group">
+                    <label class="control-label" for="modelTruck">Número da Placa</label>
+                    <input asp-for="@Model.Truck.Plate" id="modelTruck" class="form-control" />
+                    <span asp-validation-for="@Model.Truck.Plate" class="text-danger"></span>
+                </div>
+            </div>
+            <h4>Endereço do Motorista</h4>
+            <br />
+            <div class="col-md-4">
+                <div class="form-group">
+                    <label class="control-label" for="modelTruck">CEP</label>
+                    <input asp-for="@Model.Adress.CEP" id="modelTruck" class="form-control" />
+                    <span asp-validation-for="@Model.Adress.CEP" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label class="control-label" for="modelTruck">Nome da Rua</label>
+                    <input asp-for="@Model.Adress.Street" id="modelTruck" class="form-control" />
+                    <span asp-validation-for="@Model.Adress.Street" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label class="control-label" for="modelTruck">Número</label>
+                    <input asp-for="@Model.Adress.Number" id="modelTruck" class="form-control" />
+                    <span asp-validation-for="@Model.Adress.Number" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="form-group">
+                    <label class="control-label" for="modelTruck">Bairro</label>
+                    <input asp-for="@Model.Adress.District" id="modelTruck" class="form-control" />
+                    <span asp-validation-for="@Model.Adress.District" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label class="control-label" for="modelTruck">Cidade</label>
+                    <input asp-for="@Model.Adress.City" id="modelTruck" class="form-control" />
+                    <span asp-validation-for="@Model.Adress.City" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label class="control-label" for="modelTruck">País</label>
+                    <input asp-for="@Model.Adress.Country" id="modelTruck" class="form-control" />
+                    <span asp-validation-for="@Model.Adress.Country" class="text-danger"></span>
+                </div>
+            </div>
+
+            @*Botão de enviar*@
+            <div class="form-group">
+                <input type="submit" value="Criar Motorista" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+

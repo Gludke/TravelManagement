@@ -30,6 +30,7 @@ namespace TravelManagement
             services.AddDbContext<ApplicationContext>(options => options.UseOracle(Configuration.GetConnectionString("DbOracle")));
 
             services.AddTransient<IDriverRepository, DriverRepository>();
+            services.AddTransient<ITruckRepository, TruckRepository>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

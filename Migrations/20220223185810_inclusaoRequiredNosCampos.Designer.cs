@@ -2,6 +2,7 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Oracle.EntityFrameworkCore.Metadata;
 using TravelManagement.Models.Repositories;
@@ -9,9 +10,10 @@ using TravelManagement.Models.Repositories;
 namespace TravelManagement.Migrations
 {
     [DbContext(typeof(ApplicationContext))]
-    partial class ApplicationContextModelSnapshot : ModelSnapshot
+    [Migration("20220223185810_inclusaoRequiredNosCampos")]
+    partial class inclusaoRequiredNosCampos
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -21,14 +23,8 @@ namespace TravelManagement.Migrations
 
             modelBuilder.Entity("TravelManagement.Models.Adress", b =>
                 {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("NUMBER(10)")
-                        .HasAnnotation("Oracle:ValueGenerationStrategy", OracleValueGenerationStrategy.IdentityColumn);
-
                     b.Property<string>("CEP")
-                        .IsRequired()
-                        .HasColumnType("NVARCHAR2(2000)");
+                        .HasColumnType("NVARCHAR2(450)");
 
                     b.Property<string>("City")
                         .IsRequired()
@@ -53,7 +49,7 @@ namespace TravelManagement.Migrations
                         .IsRequired()
                         .HasColumnType("NVARCHAR2(2000)");
 
-                    b.HasKey("Id");
+                    b.HasKey("CEP");
 
                     b.HasIndex("DriverId")
                         .IsUnique();
@@ -68,9 +64,15 @@ namespace TravelManagement.Migrations
                         .HasColumnType("NUMBER(10)")
                         .HasAnnotation("Oracle:ValueGenerationStrategy", OracleValueGenerationStrategy.IdentityColumn);
 
+                    b.Property<int?>("AdressId")
+                        .HasColumnType("NUMBER(10)");
+
                     b.Property<string>("Name")
                         .IsRequired()
                         .HasColumnType("NVARCHAR2(2000)");
+
+                    b.Property<int?>("TruckId")
+                        .HasColumnType("NUMBER(10)");
 
                     b.HasKey("Id");
 

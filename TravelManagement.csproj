@@ -10,6 +10,12 @@
     <Compile Remove="Migrations\20220222193225_addNotNullinDriver.Designer.cs" />
     <Compile Remove="Migrations\20220222193943_addNotNullinDriver.cs" />
     <Compile Remove="Migrations\20220222193943_addNotNullinDriver.Designer.cs" />
+    <Compile Remove="Migrations\20220223202050_addFK.cs" />
+    <Compile Remove="Migrations\20220223202050_addFK.Designer.cs" />
+    <Compile Remove="Migrations\20220223204739_addFK.cs" />
+    <Compile Remove="Migrations\20220223204739_addFK.Designer.cs" />
+    <Compile Remove="Migrations\20220223205017_alterTypeIDAdress.cs" />
+    <Compile Remove="Migrations\20220223205017_alterTypeIDAdress.Designer.cs" />
   </ItemGroup>
 
   <ItemGroup>
