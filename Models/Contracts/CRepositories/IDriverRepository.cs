@@ -6,5 +6,7 @@ namespace TravelManagement.Models.Repositories
     {
         IList<Driver> List();
         void Add(Driver driver);
+        Driver SearchDriverWithId(int idDriver);
+        void Remove(int idDriver);
     }
 }

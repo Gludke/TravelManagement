@@ -1,0 +1,69 @@
+﻿@model TravelViewModel
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<section class="title">
+    <h2>nova Viagem</h2>
+    <span class="children-end">
+        <a asp-controller="Driver"
+           asp-action="Details"
+           asp-route-idDriver="@Model.Travel.Driver.Id" class="btn btn-primary">Voltar</a>
+    </span>
+</section>
+
+<h4>Motorista: @Model.Travel.Driver.Name</h4>
+@{
+    if (ViewBag.success == "success")
+    {
+        <div class="alert alert-success" role="alert">
+            Nova Viagem cadastrada com sucesso!
+        </div>
+    }
+    else if (ViewBag.success == "fail")
+    {
+        <div class="alert alert-danger" role="alert">
+            Erro ao cadastrar nova viagem.
+        </div>
+    }
+}
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-controller="Travel"
+              asp-action="Create" method="post">
+            <div class="form-group d-none">
+                <label asp-for="@Model.Travel.Driver.Id" class="control-label"></label>
+                <input asp-for="@Model.Travel.Driver.Id" class="form-control" />
+            </div>
+            <div class="form-group">
+                <label class="control-label">Data de Início</label>
+                <input type="date" asp-for="@Model.Travel.StartTravel" class="form-control" />
+                <span asp-validation-for="@Model.Travel.StartTravel" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label class="control-label">Local de origem</label>
+                <input asp-for="@Model.Travel.DeliveryPlace" class="form-control" />
+                <span asp-validation-for="@Model.Travel.DeliveryPlace" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label class="control-label">Local de Destino</label>
+                <input asp-for="@Model.Travel.ExitPlace" class="form-control" />
+                <span asp-validation-for="@Model.Travel.ExitPlace" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label class="control-label">Distância entre cidades (Km)</label>
+                <input type="number" asp-for="@Model.Travel.KmBetweenCities" class="form-control" />
+                <span asp-validation-for="@Model.Travel.KmBetweenCities" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <input type="submit" value="Adicionar" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+@section Scripts {
+}

@@ -12,9 +12,13 @@ namespace TravelManagement.Models
         #region "PROPERTIES"
         [Key]
         public int Id { get; set; }
+        [Required(ErrorMessage = "O campo é obrigatório.")]
         public DateTime StartTravel { get; set; }
+        [Required(ErrorMessage = "O campo é obrigatório.")]
         public string DeliveryPlace { get; set; }
+        [Required(ErrorMessage = "O campo é obrigatório.")]
         public string ExitPlace { get; set; }
+        [Required(ErrorMessage = "O campo é obrigatório.")]
         public double KmBetweenCities { get; set; }
         public int DriverId { get; set; }//chave estrangeira
         [Required]
@@ -36,6 +40,11 @@ namespace TravelManagement.Models
         public Travel()
         {
 
+        }
+
+        public Travel(Driver driver)
+        {
+            Driver = driver;
         }
 
         #endregion

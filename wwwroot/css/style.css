@@ -9,3 +9,18 @@
     right: 0;
     top: 0px;
 }
+
+.children-left {
+    position: absolute;
+    top: 0px;
+    left: 100px;
+}
+
+.distance-top-default{
+    margin-top: 30px;
+}
+
+.msg-ok{
+    font-size: 12px;
+    font-weight: 600;
+}

@@ -31,6 +31,7 @@ namespace TravelManagement
 
             services.AddTransient<IDriverRepository, DriverRepository>();
             services.AddTransient<ITruckRepository, TruckRepository>();
+            services.AddTransient<ITravelRepository, TravelRepository>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

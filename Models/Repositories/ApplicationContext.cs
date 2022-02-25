@@ -37,13 +37,11 @@ namespace TravelManagement.Models.Repositories
             modelBuilder.Entity<Adress>()
                 .HasOne<Driver>(a => a.Driver)
                 .WithOne(d => d.Adress);
-
             //Truck:
             modelBuilder.Entity<Truck>().HasKey(t => t.Id);
             modelBuilder.Entity<Truck>()
                 .HasOne(driver => driver.Driver)
                 .WithOne(driver => driver.Truck);
-
             //Travel:
             modelBuilder.Entity<Travel>().HasKey(t => t.Id);
             modelBuilder.Entity<Travel>().HasOne(driver => driver.Driver).WithMany(t => t.Travels);

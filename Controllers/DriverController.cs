@@ -43,5 +43,59 @@ namespace TravelManagement.Controllers
             ViewBag.success = "success";
             return View();
         }
+
+        //Leva para a view de remoção
+        public IActionResult Remove(int idDriver)
+        {
+            if (idDriver == 0)
+                return NotFound();
+
+            try
+            {
+                var driver = driverRepository.SearchDriverWithId(idDriver);
+                if (driver == null)
+                    return NotFound();
+
+                return View(driver);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+        //Remove o motorista
+        public IActionResult RemoveDriver(int idDriver)
+        {
+            if (idDriver == 0)
+                return NotFound();
+
+            try
+            {
+                driverRepository.Remove(idDriver);
+                return RedirectToAction("List");
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+        //Detalhes completos do Motorista
+        public IActionResult Details(int idDriver)
+        {
+            if (idDriver == 0)
+                return NotFound();
+
+            try
+            {
+                var driver = driverRepository.SearchDriverWithId(idDriver);
+                return View(driver);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
     }
 }

@@ -8,7 +8,7 @@ namespace TravelManagement.Models
         #region "PROPERTIES"
         [Key]
         public int Id { get; set; }
-        [Required(ErrorMessage = "O Nome é obrigatório.")]
+        [Required(ErrorMessage = "O campo é obrigatório.")]
         public string Name { get; set; }
         //public int TruckId { get; set; }
         public Truck Truck { get; set; }

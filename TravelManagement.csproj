@@ -16,6 +16,10 @@
     <Compile Remove="Migrations\20220223204739_addFK.Designer.cs" />
     <Compile Remove="Migrations\20220223205017_alterTypeIDAdress.cs" />
     <Compile Remove="Migrations\20220223205017_alterTypeIDAdress.Designer.cs" />
+    <Compile Remove="Migrations\20220224200112_modificaçaoRegraRemocao.cs" />
+    <Compile Remove="Migrations\20220224200112_modificaçaoRegraRemocao.Designer.cs" />
+    <Compile Remove="Migrations\20220224200325_modificaçaoRegraRemocao.cs" />
+    <Compile Remove="Migrations\20220224200325_modificaçaoRegraRemocao.Designer.cs" />
   </ItemGroup>
 
   <ItemGroup>
